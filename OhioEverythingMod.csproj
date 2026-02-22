@@ -1,0 +1,53 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <!-- Embedded music inside the DLL -->
+  <ItemGroup>
+    <EmbeddedResource Include="Audio\ohio.wav" />
+  </ItemGroup>
+
+  <!-- IL2CPP / BepInEx references -->
+  <ItemGroup>
+    <Reference Include="BepInEx.Core">
+      <HintPath>libs/BepInEx.Core.dll</HintPath>
+    </Reference>
+
+    <Reference Include="BepInEx.Unity.IL2CPP">
+      <HintPath>libs/BepInEx.Unity.IL2CPP.dll</HintPath>
+    </Reference>
+
+    <Reference Include="Il2CppInterop.Runtime">
+      <HintPath>libs/Il2CppInterop.Runtime.dll</HintPath>
+    </Reference>
+
+    <!-- THIS FIXES YOUR ERROR -->
+    <Reference Include="Il2Cppmscorlib">
+      <HintPath>libs/Il2Cppmscorlib.dll</HintPath>
+    </Reference>
+
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>libs/UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+
+    <Reference Include="UnityEngine.AudioModule">
+      <HintPath>libs/UnityEngine.AudioModule.dll</HintPath>
+    </Reference>
+
+    <Reference Include="UnityEngine.UI">
+      <HintPath>libs/UnityEngine.UI.dll</HintPath>
+    </Reference>
+
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>libs/Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="HarmonyX" Version="2.16.0" />
+  </ItemGroup>
+
+</Project>
